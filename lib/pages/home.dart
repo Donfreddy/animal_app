@@ -25,7 +25,7 @@ class _HomePageState extends State<HomePage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
-                'aplanet',
+                'Aplanet',
                 style: TextStyle(
                   fontSize: 20.0,
                   fontFamily: 'ubuntu',
@@ -33,9 +33,14 @@ class _HomePageState extends State<HomePage> {
                   letterSpacing: .6,
                 ),
               ),
-              Text('we love the planet',
-                  style: TextStyle(
-                      fontSize: 13.0, fontFamily: 'ubuntu', color: subText)),
+              Text(
+                'We love the planet',
+                style: TextStyle(
+                  fontSize: 13.0,
+                  fontFamily: 'ubuntu',
+                  color: subText,
+                ),
+              ),
             ],
           ),
         ),
@@ -50,7 +55,10 @@ class _HomePageState extends State<HomePage> {
               padding: EdgeInsets.only(left: 0, top: 20.0),
               child: Container(
                 child: Text('Welcome to aplanet',
-                    style: TextStyle(color: subTextColor, fontSize: 30.0, fontFamily: 'ubuntu')),
+                    style: TextStyle(
+                        color: subTextColor,
+                        fontSize: 30.0,
+                        fontFamily: 'ubuntu')),
               ),
             ),
             Carousel(),

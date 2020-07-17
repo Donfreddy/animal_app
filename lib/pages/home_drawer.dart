@@ -100,7 +100,7 @@ class About extends StatelessWidget {
                 height: 50,
               ),
               children: [
-                Text('Developed by Don Freddy', style: TextStyle(fontFamily: 'ubuntu')),
+                Text('Developed by Don Freddy and Karlson Sedoid', style: TextStyle(fontFamily: 'ubuntu')),
                 Padding(
                   padding: const EdgeInsets.only(top: 16.0),
                   child: Row(
