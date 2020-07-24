@@ -15,7 +15,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       resizeToAvoidBottomPadding: false,
       endDrawer: HomeDrawer(),
-      backgroundColor: NeumorphicTheme.baseColor(context),
+      backgroundColor: vintageBg,
       appBar: NeumorphicAppBar(
         leading: null,
         automaticallyImplyLeading: false,
@@ -28,7 +28,6 @@ class _HomePageState extends State<HomePage> {
                 'Aplanet',
                 style: TextStyle(
                   fontSize: 20.0,
-                  fontFamily: 'ubuntu',
                   fontWeight: FontWeight.w700,
                   letterSpacing: .6,
                 ),
@@ -37,8 +36,7 @@ class _HomePageState extends State<HomePage> {
                 'We love the planet',
                 style: TextStyle(
                   fontSize: 13.0,
-                  fontFamily: 'ubuntu',
-                  color: subText,
+                  color: brownText,
                 ),
               ),
             ],
@@ -47,22 +45,43 @@ class _HomePageState extends State<HomePage> {
         //centerTitle: true,
       ),
       body: Container(
-        //width: screenWidth(context),
-        color: primary,
         child: Column(
           children: <Widget>[
             Padding(
               padding: EdgeInsets.only(left: 0, top: 20.0),
               child: Container(
-                child: Text('Welcome to aplanet',
-                    style: TextStyle(
-                        color: subTextColor,
-                        fontSize: 30.0,
-                        fontFamily: 'ubuntu')),
+                child: Text(
+                  'Find your animal',
+                  style: TextStyle(
+                      color: blackText,
+                      fontSize: 30.0,
+                      fontWeight: FontWeight.w600),
+                ),
               ),
             ),
+            Padding(
+              padding: EdgeInsets.only(left: 0, top: 20.0),
+              child: Container(
+                child: Text(
+                  'Welcome to aplanet',
+                  style: TextStyle(
+                    color: blackText,
+                    fontSize: 30.0,
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(height: 30),
+            Text(
+              "Categories",
+              style: TextStyle(
+                color: blackText,
+                fontSize: 25,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            SizedBox(height: 20),
             Carousel(),
-            SizedBox(height: 32.0)
           ],
         ),
       ),

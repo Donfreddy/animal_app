@@ -9,10 +9,35 @@ class HomeDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      child: NeumorphicBackground(  backendColor: bgColor,
+      child: NeumorphicBackground(
+        backendColor: brownBg,
         child: Column(
           children: <Widget>[
             HeadDrawer(),
+            ItemDrawer(
+              icon: FontAwesomeIcons.search,
+              text: 'Search',
+            ),
+            Divider(height: 0),
+            ItemDrawer(
+              icon: FontAwesomeIcons.share,
+              text: 'Share app',
+            ),
+            Divider(height: 0),
+            ItemDrawer(
+              icon: FontAwesomeIcons.bookmark,
+              text: 'Favorites',
+            ),
+            Divider(height: 0),
+            ItemDrawer(
+              icon: Icons.group,
+              text: 'Contact us',
+            ),
+            Divider(height: 0),
+            ItemDrawer(
+              icon: FontAwesomeIcons.infoCircle,
+              text: 'About app',
+            ),
             Spacer(),
             //wait version info
             About(),
@@ -40,7 +65,10 @@ class _HeadDrawerState extends State<HeadDrawer> with TickerProviderStateMixin {
         child: NeumorphicText(
           'Aplanet',
           textStyle: NeumorphicTextStyle(
-              fontSize: 40, fontWeight: FontWeight.bold, fontFamily: 'ubuntu'),
+            fontSize: 40,
+            fontWeight: FontWeight.bold,
+            fontFamily: 'ubuntu',
+          ),
         ),
       ),
     );
@@ -66,7 +94,10 @@ class ItemDrawer extends StatelessWidget {
           : null,
       title: Text(
         text,
-        style: TextStyle(color: NeumorphicTheme.defaultTextColor(context)),
+        style: TextStyle(
+          color: NeumorphicTheme.defaultTextColor(context),
+          fontFamily: 'ubuntu',
+        ),
       ),
       trailing: child,
       onTap: onTap,
@@ -86,12 +117,7 @@ class About extends StatelessWidget {
         if (snapshot.hasData && !snapshot.hasError) {
           return ItemDrawer(
             text: 'Version ' + snapshot.data.version.toString(),
-            child: Text(
-              'About',
-              style: TextStyle(
-                  color: NeumorphicTheme.defaultTextColor(context),
-                  fontFamily: 'ubuntu'),
-            ),
+            child: Text('About'),
             onTap: () => showAboutDialog(
               context: context,
               applicationVersion: snapshot.data.version.toString(),
@@ -100,7 +126,10 @@ class About extends StatelessWidget {
                 height: 50,
               ),
               children: [
-                Text('Developed by Don Freddy and Karlson Sedoid', style: TextStyle(fontFamily: 'ubuntu')),
+                Text(
+                  'Developed by Don Freddy and Karlson Sedoid',
+                  style: TextStyle(fontFamily: 'ubuntu'),
+                ),
                 Padding(
                   padding: const EdgeInsets.only(top: 16.0),
                   child: Row(
@@ -110,39 +139,42 @@ class About extends StatelessWidget {
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
                           IconButton(
-                              icon: FaIcon(
-                                FontAwesomeIcons.github,
-                                color: primary,
-                              ),
-                              onPressed: () =>
-                                  launch('https://github.com/Donfreddy')),
-                          const Text('Github', style: TextStyle(fontFamily: 'ubuntu'))
+                            icon: FaIcon(
+                              FontAwesomeIcons.github,
+                              color: brownText,
+                            ),
+                            onPressed: () =>
+                                launch('https://github.com/Donfreddy'),
+                          ),
+                          const Text('Github')
                         ],
                       ),
                       Column(
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
                           IconButton(
-                              icon: FaIcon(
-                                FontAwesomeIcons.twitter,
-                                color: primary,
-                              ),
-                              onPressed: () =>
-                                  launch('https://twitter.com/DonFreddy2')),
-                          const Text('Twitter', style: TextStyle(fontFamily: 'ubuntu'))
+                            icon: FaIcon(
+                              FontAwesomeIcons.twitter,
+                              color: brownText,
+                            ),
+                            onPressed: () =>
+                                launch('https://twitter.com/DonFreddy2'),
+                          ),
+                          const Text('Twitter')
                         ],
                       ),
                       Column(
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
                           IconButton(
-                              icon: FaIcon(
-                                FontAwesomeIcons.linkedin,
-                                color: primary,
-                              ),
-                              onPressed: () => launch(
-                                  'https://www.linkedin.com/in/don-freddy-237ba4193/')),
-                          const Text('Linkedin', style: TextStyle(fontFamily: 'ubuntu'))
+                            icon: FaIcon(
+                              FontAwesomeIcons.linkedin,
+                              color: brownText,
+                            ),
+                            onPressed: () => launch(
+                                'https://www.linkedin.com/in/don-freddy-237ba4193/'),
+                          ),
+                          const Text('Linkedin')
                         ],
                       )
                     ],
