@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "451518833001",
+    "firebase_url": "https://aplanet-app.firebaseio.com",
+    "project_id": "aplanet-app",
+    "storage_bucket": "aplanet-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:451518833001:android:289c0dca41ba4c6be5ddf8",
+        "android_client_info": {
+          "package_name": "com.example.animal_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "451518833001-plpj17i37ji086hft067plm4n5vgikqi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkOqJVtpqGG-kd2pngw1a16l_7bK1Q24g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "451518833001-plpj17i37ji086hft067plm4n5vgikqi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

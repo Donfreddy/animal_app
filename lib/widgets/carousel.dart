@@ -1,11 +1,19 @@
 import 'dart:math';
 
 import 'package:animal_app/models/animal.dart';
+import 'package:animal_app/models/pages_arguments.dart';
 import 'package:animal_app/styles/style.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
-import 'package:provider/provider.dart';
-// import 'package:provider/provider.dart';
+
+final List<Animal> _animalList = [
+  new Animal('Animal 1', 'Titre 1', 'assets/images/wild_animals.jpeg'),
+  new Animal('Animal 2', 'Titre 2', 'assets/images/wild_animals.jpeg'),
+  new Animal('Animal 3', 'Titre 3', 'assets/images/wild_animals.jpeg'),
+  new Animal('Animal 4', 'Titre 4', 'assets/images/wild_animals.jpeg'),
+  new Animal('Animal 5', 'Titre 5', 'assets/images/wild_animals.jpeg'),
+];
 
 class Carousel extends StatefulWidget {
   @override
@@ -13,16 +21,10 @@ class Carousel extends StatefulWidget {
 }
 
 class _CarouselState extends State<Carousel> {
-  final List<Animal> _animalList = [
-    new Animal('Animal 1', 'Titre 1', 'assets/images/wild_animals.jpeg'),
-    new Animal('Animal 2', 'Titre 2', 'assets/images/wild_animals.jpeg'),
-    new Animal('Animal 3', 'Titre 3', 'assets/images/wild_animals.jpeg'),
-    new Animal('Animal 4', 'Titre 4', 'assets/images/wild_animals.jpeg'),
-    new Animal('Animal 5', 'Titre 5', 'assets/images/wild_animals.jpeg'),
-  ];
-
   final PageController _pageController =
       PageController(initialPage: 0, viewportFraction: 0.8);
+
+  List<DocumentSnapshot> _animals = [];
 
   final double scaleFraction = 0.9;
   final double scaleDepth = 0.5;
@@ -38,6 +40,13 @@ class _CarouselState extends State<Carousel> {
       });
     }
     return false;
+  }
+
+ 
+
+  @override
+  void initState() {
+    super.initState();
   }
 
   @override
@@ -82,10 +91,14 @@ class AnimalCard extends StatelessWidget {
         child: GestureDetector(
           behavior: HitTestBehavior.opaque,
           onTap: () {
-            /*  Navigator.pushNamed(context, '/category',
-                arguments: MainPageArguments(
-                    category: category,
-                    cardPosition: CardPosition.getPosition(context))); */
+            Navigator.pushNamed(
+              context,
+              '/detail',
+              arguments: MainPageArguments(
+                animal: animal,
+                cardPosition: CardPosition.getPosition(context),
+              ),
+            );
           },
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
